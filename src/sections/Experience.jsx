@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
 
 import { expCards } from "../constants";
 import TitleHeader from "../components/TitleHeader";
@@ -10,118 +9,138 @@ import GlowCard from "../components/GlowCard";
 gsap.registerPlugin(ScrollTrigger);
 
 const Experience = () => {
-  const containerRef = useRef();
-
   useGSAP(() => {
-    // 1. Animate the GlowCards (The left side images)
-    gsap.utils.toArray(".exp-card-wrapper").forEach((wrapper) => {
-      gsap.from(wrapper.querySelector(".glow-card-container"), {
-        x: -100,
+    // Loop through each timeline card and animate them in
+    // as the user scrolls to each card
+    gsap.utils.toArray(".timeline-card").forEach((card) => {
+      // Animate the card coming in from the left
+      // and fade in
+      gsap.from(card, {
+        // Move the card in from the left
+        xPercent: -100,
+        // Make the card invisible at the start
         opacity: 0,
+        // Set the origin of the animation to the left side of the card
+        transformOrigin: "left left",
+        // Animate over 1 second
         duration: 1,
-        ease: "power2.out",
+        // Use a power2 ease-in-out curve
+        ease: "power2.inOut",
+        // Trigger the animation when the card is 80% of the way down the screen
         scrollTrigger: {
-          trigger: wrapper,
-          start: "top 85%",
-        },
-      });
-    });
-
-    // 2. Animate the Text Content (The right side details)
-    gsap.utils.toArray(".exp-text-content").forEach((text) => {
-      gsap.from(text, {
-        opacity: 0,
-        x: 50,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: text,
+          // The card is the trigger element
+          trigger: card,
+          // Trigger the animation when the card is 80% down the screen
           start: "top 80%",
         },
       });
     });
 
-    // 3. The "Growing" Timeline Line
-    // This scales the line down as you scroll, creating a "drawing" effect
-    gsap.to(".timeline-line-inner", {
-      scaleY: 0,
+    // Animate the timeline height as the user scrolls
+    // from the top of the timeline to 70% down the screen
+    // The timeline height should scale down from 1 to 0
+    // as the user scrolls up the screen
+    gsap.to(".timeline", {
+      // Set the origin of the animation to the bottom of the timeline
       transformOrigin: "bottom bottom",
-      ease: "none",
+      // Animate the timeline height over 1 second
+      ease: "power1.inOut",
+      // Trigger the animation when the timeline is at the top of the screen
+      // and end it when the timeline is at 70% down the screen
       scrollTrigger: {
-        trigger: ".experience-grid-container",
+        trigger: ".timeline",
         start: "top center",
-        end: "bottom center",
-        scrub: true, // Smoothly ties the animation to the scrollbar
+        end: "70% center",
+        // Update the animation as the user scrolls
+        onUpdate: (self) => {
+          // Scale the timeline height as the user scrolls
+          // from 1 to 0 as the user scrolls up the screen
+          gsap.to(".timeline", {
+            scaleY: 1 - self.progress,
+          });
+        },
       },
     });
-  }, { scope: containerRef });
+
+    // Loop through each expText element and animate them in
+    // as the user scrolls to each text element
+    gsap.utils.toArray(".expText").forEach((text) => {
+      // Animate the text opacity from 0 to 1
+      // and move it from the left to its final position
+      // over 1 second with a power2 ease-in-out curve
+      gsap.from(text, {
+        // Set the opacity of the text to 0
+        opacity: 0,
+        // Move the text from the left to its final position
+        // (xPercent: 0 means the text is at its final position)
+        xPercent: 0,
+        // Animate over 1 second
+        duration: 1,
+        // Use a power2 ease-in-out curve
+        ease: "power2.inOut",
+        // Trigger the animation when the text is 60% down the screen
+        scrollTrigger: {
+          // The text is the trigger element
+          trigger: text,
+          // Trigger the animation when the text is 60% down the screen
+          start: "top 60%",
+        },
+      });
+    }, "<"); // position parameter - insert at the start of the animation
+  }, []);
 
   return (
     <section
       id="experience"
-      ref={containerRef}
-      className="flex-center md:mt-40 mt-20 section-padding xl:px-0 relative z-10 bg-black"
+      className="flex-center md:mt-40 mt-20 section-padding xl:px-0"
     >
       <div className="w-full h-full md:px-20 px-5">
         <TitleHeader
-          title="Professional Journey"
+          title="Professional Work Experience"
           sub="💼 My Career Overview"
         />
-
-        <div className="mt-32 relative experience-grid-container">
+        <div className="mt-32 relative">
           <div className="relative z-50 xl:space-y-32 space-y-10">
-            {expCards.map((card, index) => (
-              <div key={index} className="exp-card-wrapper flex flex-col xl:flex-row gap-10 xl:gap-20">
-                
-                {/* Left Side: The Image Card */}
-                <div className="xl:w-2/6 glow-card-container">
+            {expCards.map((card) => (
+              <div key={card.title} className="exp-card-wrapper">
+                <div className="xl:w-2/6">
                   <GlowCard card={card}>
-                    <div className="overflow-hidden rounded-xl">
-                      <img 
-                        src={card.imgPath} 
-                        alt={card.title} 
-                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" 
-                      />
+                    <div>
+                      <img src={card.imgPath} alt="exp-img" />
                     </div>
                   </GlowCard>
                 </div>
-
-                {/* Right Side: The Timeline and Text */}
-                <div className="xl:w-4/6 flex items-start">
-                  <div className="relative mr-8 md:mr-12">
-                    {/* The Static Background Line */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-gray-800" />
-                    
-                    {/* The Animated "Progress" Line */}
-                    <div className="timeline-line-inner absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full bg-emerald-500" />
-                    
-                    {/* The Logo "Node" */}
-                    <div className="relative z-20 w-12 h-12 rounded-full border-2 border-emerald-500 bg-black flex-center p-2 overflow-hidden shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                      <img src={card.logoPath} alt="company-logo" className="w-full h-full object-contain" />
+                <div className="xl:w-4/6">
+                  <div className="flex items-start">
+                    <div className="timeline-wrapper">
+                      <div className="timeline" />
+                      <div className="gradient-line w-1 h-full" />
+                    </div>
+                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
+                      <div className="timeline-logo">
+                        <img src={card.logoPath} alt="logo" />
+                      </div>
+                      <div>
+                        <h1 className="font-semibold text-3xl">{card.title}</h1>
+                        <p className="my-5 text-white-50">
+                          🗓️&nbsp;{card.date}
+                        </p>
+                        <p className="text-[#839CB5] italic">
+                          Responsibilities
+                        </p>
+                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
+                          {card.responsibilities.map(
+                            (responsibility, index) => (
+                              <li key={index} className="text-lg">
+                                {responsibility}
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="exp-text-content flex-grow">
-                    <h1 className="font-bold text-3xl text-white group-hover:text-emerald-400 transition-colors">
-                      {card.title}
-                    </h1>
-                    <p className="my-3 text-emerald-500/80 font-mono text-sm">
-                      🗓️ {card.date}
-                    </p>
-                    <p className="text-gray-500 italic text-sm mb-4 uppercase tracking-widest">
-                      Technical Contributions
-                    </p>
-                    <ul className="list-none flex flex-col gap-4 text-gray-300">
-                      {card.responsibilities.map((responsibility, i) => (
-                        <li key={i} className="flex items-start gap-3 text-lg leading-relaxed">
-                          <span className="text-emerald-500 mt-1">▹</span>
-                          {responsibility}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </div>
-
               </div>
             ))}
           </div>

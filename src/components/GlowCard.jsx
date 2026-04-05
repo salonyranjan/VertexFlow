@@ -1,56 +1,47 @@
 import { useRef } from "react";
 
-const GlowCard = ({ card, index, children, showStars = false }) => {
-  // Use a single ref for the specific card instance
-  const cardRef = useRef(null);
+const GlowCard = ({ card, index, children }) => {
+  // refs for all the cards
+  const cardRefs = useRef([]);
 
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
+  // when mouse moves over a card, rotate the glow effect
+  const handleMouseMove = (index) => (e) => {
+    // get the current card
+    const card = cardRefs.current[index];
+    if (!card) return;
 
-    const cardElement = cardRef.current;
-    const rect = cardElement.getBoundingClientRect();
-    
-    // Calculate mouse position relative to the center of the card
+    // get the mouse position relative to the card
+    const rect = card.getBoundingClientRect();
     const mouseX = e.clientX - rect.left - rect.width / 2;
     const mouseY = e.clientY - rect.top - rect.height / 2;
 
-    // Calculate the angle for the conic-gradient in your CSS
+    // calculate the angle from the center of the card to the mouse
     let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
+
+    // adjust the angle so that it's between 0 and 360
     angle = (angle + 360) % 360;
 
-    // This updates the --start variable used in your index.css
-    cardElement.style.setProperty("--start", angle);
+    // set the angle as a CSS variable
+    card.style.setProperty("--start", angle + 60);
   };
 
+  // return the card component with the mouse move event
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      className="card card-border rounded-2xl p-8 md:p-10 mb-6 break-inside-avoid shadow-2xl transition-all duration-300"
+      ref={(el) => (cardRefs.current[index] = el)}
+      onMouseMove={handleMouseMove(index)}
+      className="card card-border timeline-card rounded-xl p-10 mb-5 break-inside-avoid-column"
     >
-      {/* The animated glow layer defined in your CSS */}
-      <div className="glow" />
-
-      {/* Conditional Stars (Only for Testimonials) */}
-      {showStars && (
-        <div className="flex items-center gap-1 mb-6">
-          {Array.from({ length: 5 }, (_, i) => (
-            <img key={i} src="/images/star.png" alt="star" className="size-4 md:size-5" />
-          ))}
-        </div>
-      )}
-
-      {/* Main Content Area */}
-      <div className="relative z-10">
-        {/* If the card has a review/quote, show it, otherwise just render children */}
-        {card?.review && (
-          <p className="text-gray-300 text-lg italic leading-relaxed mb-8">
-            "{card.review}"
-          </p>
-        )}
-        
-        {children}
+      <div className="glow"></div>
+      <div className="flex items-center gap-1 mb-5">
+        {Array.from({ length: 5 }, (_, i) => (
+          <img key={i} src="/images/star.png" alt="star" className="size-5" />
+        ))}
       </div>
+      <div className="mb-5">
+        <p className="text-white-50 text-lg">{card.review}</p>
+      </div>
+      {children}
     </div>
   );
 };

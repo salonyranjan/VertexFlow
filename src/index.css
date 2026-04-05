@@ -470,6 +470,3 @@ section {
 .card:hover::before {
   opacity: 1;
 }
-/* In index.css */
-.navbar {
-  @apply fixed w-full left-0 top-0 z-[999] backdrop-blur-xl bg-black/50;}

@@ -56,8 +56,7 @@ const AppShowcase = () => {
                 An AI-powered career coaching platform that generates personalized interview strategies by analyzing job descriptions and user resumes
               </h2>
               <p className="text-white-50 md:text-xl">
-                An app built with React Native, Expo, & TailwindCSS for a fast,
-                user-friendly experience.
+                Built with React, Node.js, MongoDB, and the Google Gemini 2.5 Flash model, featuring a secure cross-origin microservice architecture.
               </p>
             </div>
           </div>

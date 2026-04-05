@@ -6,14 +6,14 @@ const navLinks = [
 ];
 
 const words = [
-  { text: "AI/ML", imgPath: "/images/ideas.svg" },
-  { text: "Full-Stack", imgPath: "/images/concepts.svg" },
-  { text: "Data Analytics", imgPath: "/images/designs.svg" },
-  { text: "Web Dev", imgPath: "/images/code.svg" },
-  { text: "AI/ML", imgPath: "/images/ideas.svg" },
-  { text: "Full-Stack", imgPath: "/images/concepts.svg" },
-  { text: "Data Analytics", imgPath: "/images/designs.svg" },
-  { text: "Web Dev", imgPath: "/images/code.svg" },
+  { text: "Ideas", imgPath: "/images/ideas.svg" },
+  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "Designs", imgPath: "/images/designs.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Ideas", imgPath: "/images/ideas.svg" },
+  { text: "Concepts", imgPath: "/images/concepts.svg" },
+  { text: "Designs", imgPath: "/images/designs.svg" },
+  { text: "Code", imgPath: "/images/code.svg" },
 ];
 
 const counterItems = [
@@ -59,38 +59,38 @@ const techStackIcons = [
 
 const expCards = [
   {
-    review: "Assisted in technical projects and gained practical experience in a government IT environment. [cite: 27, 28]",
-    imgPath: "/images/exp1.png",
+    review: "Assisted in technical projects and gained practical experience in a government IT environment.",
+    imgPath: "/images/exp01.png",
     logoPath: "/images/nielit-logo.png", 
     title: "Work-Based Learning Intern",
-    date: "September 2025 - March 2026 [cite: 26]",
+    date: "September 2025 - March 2026",
     responsibilities: [
-      "Engaging in technical development at NIELIT Bihar, Patna. [cite: 26]",
-      "Adhered to workplace standards and protocols. [cite: 27]",
-      "Successfully balanced internship duties with academic responsibilities. [cite: 28]",
+      "Engaging in technical development at NIELIT Bihar, Patna.",
+      "Adhered to workplace standards and protocols.",
+      "Successfully balanced internship duties with academic responsibilities.",
     ],
   },
   {
-    review: "Developed foundational skills in front-end technologies and collaborative web development. [cite: 30]",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/edunet-logo.png", 
+    review: "Developed foundational skills in front-end technologies and collaborative web development.",
+    imgPath: "/images/exp02.jpg",
+    logoPath: "/images/edunet-logo.jpg", 
     title: "Front End Web Dev Intern",
-    date: "August 2025 - October 2025 [cite: 29]",
+    date: "August 2025 - October 2025",
     responsibilities: [
-      "Completed internship with Edunet Foundation in collaboration with AICTE & IBM SkillsBuild. [cite: 29]",
-      "Built a front end web project with guidance from mentors using IBM SkillsBuild. [cite: 30]",
-      "Gained experience through masterclasses and technical sessions. [cite: 30]",
+      "Completed internship with Edunet Foundation in collaboration with AICTE & IBM SkillsBuild. ",
+      "Built a front end web project with guidance from mentors using IBM SkillsBuild.",
+      "Gained experience through masterclasses and technical sessions.",
     ],
   },
   {
-    review: "Built and tested responsive web applications using HTML, CSS, JavaScript, and PHP. [cite: 35]",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/codespeedy-logo.png",
+    review: "Built and tested responsive web applications using HTML, CSS, JavaScript, and PHP.",
+    imgPath: "/images/exp03.jpg",
+    logoPath: "/images/cs-logo.png",
     title: "Web Development Intern",
-    date: "February 2025 - May 2025 [cite: 34]",
+    date: "February 2025 - May 2025",
     responsibilities: [
-      "Delivered high-quality code on time in a remote setup at Codespeedy Technology Pvt. Ltd. [cite: 32, 35]",
-      "Created clear documentation and tutorials to facilitate team collaboration. [cite: 36]",
+      "Delivered high-quality code on time in a remote setup at Codespeedy Technology Pvt. Ltd.",
+      "Created clear documentation and tutorials to facilitate team collaboration.",
     ],
   },
 ];

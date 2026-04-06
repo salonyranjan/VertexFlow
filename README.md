@@ -6,8 +6,9 @@
 
 Welcome to the source code for my personal developer portfolio, **VertexFlow**. This project is a highly interactive, 3D-powered web experience designed to showcase my journey as a Full-Stack and AI/ML Developer. 
 
-🔗 **[View Live Portfolio](https://vertex-flow-3h66oz0m7-salonyranjans-projects.vercel.app)** ---
+🔗 **[View Live Portfolio](https://vertex-flow-3h66oz0m7-salonyranjans-projects.vercel.app)**
 
+---
 ## ✨ Features
 
 - **Interactive 3D Elements:** Immersive 3D models and environments built with Three.js and React Three Fiber.
@@ -16,7 +17,8 @@ Welcome to the source code for my personal developer portfolio, **VertexFlow**. 
 - **Functional Contact Form:** Direct-to-email contact form integrated seamlessly with EmailJS.
 - **Responsive Design:** Fully optimized for both desktop and mobile viewing experiences.
 - **Modern Architecture:** Built on Vite for lightning-fast Hot Module Replacement (HMR) and optimized production builds.
-
+  
+---
 ## 🛠️ Tech Stack
 
 ### Frontend & Core
@@ -35,6 +37,32 @@ Welcome to the source code for my personal developer portfolio, **VertexFlow**. 
 ### Utilities & Integrations
 - **@emailjs/browser** - Client-side email integration
 
+---
+## 🏛️ Project Architecture
+
+VertexFlow is built on a modern, decoupled frontend architecture designed for high performance, smooth 3D rendering, and seamless continuous deployment.
+
+```mermaid
+graph TD
+    %% User Interaction
+    User((User / Browser)) -->|Visits Site| Vercel[Vercel Edge Network]
+    Vercel -->|Serves Static Assets| App[React / Vite App]
+
+    %% Frontend Core
+    subgraph Frontend Client
+        App --> 3D[3D Engine<br/>Three.js + React Three Fiber]
+        App --> Motion[Animation Layer<br/>GSAP + Framer Motion]
+        App --> Styling[UI Layer<br/>Tailwind CSS]
+    end
+
+    %% External Services
+    App -->|Contact Form Payload| EmailJS[EmailJS API]
+    EmailJS -->|Email Delivery| Inbox((Personal Inbox))
+
+    %% CI/CD Pipeline
+    Repo[GitHub Repository] -->|Push to Main| CI_CD[Vercel CI/CD Pipeline]
+    CI_CD -->|Builds & Deploys| Vercel
+```
 ---
 ## 🗄️ Conceptual Data Model (ER Diagram)
 
@@ -84,6 +112,7 @@ erDiagram
         string credential_link
     }
 ```
+---
 
 ## 🚀 Projects Showcased
 
@@ -124,6 +153,7 @@ npm run dev
 ```
 The application will be available at http://localhost:5173.
 
+---
 ## 🌐 Deployment
 This project is configured for seamless deployment on Vercel.
 

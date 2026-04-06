@@ -179,11 +179,10 @@ const logoIconsList = [
   { imgPath: "/images/logos/company-logo-3.png" },
   { imgPath: "/images/logos/company-logo-4.png" },
 ];
-
 const expLogos = [
-  { name: "logo1", imgPath: "/images/logo1.png" },
-  { name: "logo2", imgPath: "/images/logo2.png" },
-  { name: "logo3", imgPath: "/images/logo3.png" },
+  { name: "logo1", imgPath: "/images/nielit-logo.png" },
+  { name: "logo2", imgPath: "/images/edunet-logo.jpg" },
+  { name: "logo3", imgPath: "/images/cs-logo.png" },
 ];
 
 const socialImgs = [

@@ -1,83 +1,137 @@
-# 🌌 VertexFlow
+# 🌌 VertexFlow - Interactive 3D Developer Portfolio
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
-[![React](https://img.shields.io/badge/React-18.x-61DAFB.svg?logo=react)]()
-[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black.svg?logo=three.js)]()
-[![GSAP](https://img.shields.io/badge/GSAP-Animation-88CE02.svg?logo=greensock)]()
+![Live Status](https://img.shields.io/badge/Status-Live-success)
+![Framework](https://img.shields.io/badge/Framework-React%20%2B%20Vite-blue)
+![3D](https://img.shields.io/badge/3D-Three.js%20%7C%20Fiber-black)
 
-> **A high-performance, visually cinematic 3D portfolio designed to showcase technical expertise through an immersive digital experience.**
+Welcome to the source code for my personal developer portfolio, **VertexFlow**. This project is a highly interactive, 3D-powered web experience designed to showcase my journey as a Full-Stack and AI/ML Developer. 
 
----
+🔗 **[View Live Portfolio](https://vertex-flow-3h66oz0m7-salonyranjans-projects.vercel.app)** ---
 
-## 📖 Table of Contents
-- [About the Project](#about-the-project)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Future Roadmap](#future-roadmap)
-- [License](#license)
-- [Contact](#contact)
+## ✨ Features
 
----
-
-## 💡 About the Project
-VertexFlow is a high-performance, visually cinematic 3D portfolio designed to showcase technical expertise through an immersive digital experience. Built using React, Three.js, and GSAP, this project moves beyond traditional 2D layouts by introducing depth, motion, and interactive 3D environments. It serves as both a showcase of projects and a demonstration of advanced web rendering capabilities.
-
----
-
-## ✨ Key Features
-* **Immersive 3D Environments:** Utilizes WebGL and Three.js to create spatial depth and interactive visual elements.
-* **Cinematic Animations:** Smooth, high-performance scroll and timeline animations powered by GSAP.
-* **Non-Traditional Layout:** Breaks the mold of standard grid-based portfolios with a dynamic, physics-aware, or visually fluid interface.
-* **Optimized Performance:** Carefully structured to ensure complex 3D scenes render efficiently across devices without sacrificing frame rates.
-
----
+- **Interactive 3D Elements:** Immersive 3D models and environments built with Three.js and React Three Fiber.
+- **Fluid Animations:** Complex scroll-triggered animations and page transitions powered by GSAP and Framer Motion.
+- **Smooth Scrolling:** Silky smooth, physics-based scrolling utilizing Lenis.
+- **Functional Contact Form:** Direct-to-email contact form integrated seamlessly with EmailJS.
+- **Responsive Design:** Fully optimized for both desktop and mobile viewing experiences.
+- **Modern Architecture:** Built on Vite for lightning-fast Hot Module Replacement (HMR) and optimized production builds.
 
 ## 🛠️ Tech Stack
-**Core Technologies:**
-* **React:** UI architecture and component state management.
-* **Three.js / React Three Fiber:** 3D rendering, scene creation, and WebGL management.
-* **GSAP (GreenSock Animation Platform):** Complex sequencing, scroll-triggered animations, and cinematic transitions.
+
+### Frontend & Core
+- **React 19** - UI Library
+- **Vite** - Build Tool & Development Server
+- **Tailwind CSS v4** - Utility-first styling
+
+### 3D & Animation
+- **Three.js** - WebGL 3D Engine
+- **@react-three/fiber** - React renderer for Three.js
+- **@react-three/drei** - Useful helpers for React Three Fiber
+- **GSAP (GreenSock)** - Professional-grade animation library
+- **Framer Motion** - Declarative animations for React
+- **Lenis** - Smooth scroll API
+
+### Utilities & Integrations
+- **@emailjs/browser** - Client-side email integration
+
+---
+## 🗄️ Conceptual Data Model (ER Diagram)
+
+Although VertexFlow is a serverless frontend application, the UI is driven by a strictly typed data model structure, and user interactions are handled via structured payloads to external APIs.
+
+```mermaid
+erDiagram
+    VISITOR ||--o{ MESSAGE : "Submits via Contact Form"
+    PORTFOLIO ||--|{ PROJECT : "Showcases"
+    PORTFOLIO ||--|{ EXPERIENCE : "Highlights"
+    PORTFOLIO ||--|{ SKILL : "Demonstrates"
+    PORTFOLIO ||--|{ CERTIFICATION : "Validates"
+
+    MESSAGE {
+        string sender_name
+        string sender_email
+        string message_content
+        string service_id "EmailJS Payload"
+    }
+
+    PROJECT {
+        string name
+        string tech_stack
+        string description
+        string github_link
+        string live_link
+        string image_path
+    }
+
+    EXPERIENCE {
+        string role_title
+        string company_logo
+        string duration
+        array responsibilities
+    }
+
+    SKILL {
+        string category_title
+        string description
+        string icon_path
+    }
+
+    CERTIFICATION {
+        string course_name
+        string issuer
+        string issue_date
+        string credential_link
+    }
+```
+
+## 🚀 Projects Showcased
+
+This portfolio highlights my top engineering projects, including:
+- **MediQuery.ai:** RAG-based medical chatbot using LLMs, LangChain, and AWS.
+- **SkillBridge AI:** Full-stack AI career coach with automated resume parsing.
+- **RoleRadar:** Agentic job discovery platform using autonomous AI agents.
+- **OpenShelf E2E:** Machine learning recommendation engine utilizing collaborative filtering.
+- **QuickCart:** High-performance e-commerce architecture.
+- **ZenithRag:** Advanced Level-3 RAG system built for deep document retrieval.
 
 ---
 
-## 🚀 Getting Started
+## 💻 Running Locally
 
-To get a local copy up and running, follow these simple steps.
+Want to explore the code or run it on your own machine? Follow these steps:
 
-### Prerequisites
-* Node.js (v16 or higher recommended)
-* Git
-
-### Installation
-
-1. **Clone the repository**
-   ```sh
-   git clone [https://github.com/salonyranjan/VertexFlow.git](https://github.com/salonyranjan/VertexFlow.git)
-   cd VertexFlow
-   ```
-Install Dependencies
-
-```sh
-npm install
-Run the Development Server
+### 1. Clone the repository
+```bash
+git clone [https://github.com/salonyranjan/VertexFlow.git](https://github.com/salonyranjan/VertexFlow.git)
+cd VertexFlow
 ```
-
-```sh
+### 2. Install dependencies
+```bash
+npm install
+```
+### 3. Set up Environment Variables
+To make the contact form work locally, create a .env file in the root directory and add your EmailJS credentials:
+```
+Code snippet
+VITE_APP_EMAILJS_SERVICE_ID=your_service_id_here
+VITE_APP_EMAILJS_TEMPLATE_ID=your_template_id_here
+VITE_APP_EMAILJS_PUBLIC_KEY=your_public_key_here
+```
+### 4. Start the development server
+```bash
 npm run dev
 ```
-Open http://localhost:3000 (or the port specified in your terminal) to view it in your browser.
+The application will be available at http://localhost:5173.
 
-## 💻 Usage
-Navigate through the 3D space to explore the portfolio. (Include a few screenshots or a short GIF of the 3D animations in action here to give visitors an immediate sense of the cinematic feel).
+## 🌐 Deployment
+This project is configured for seamless deployment on Vercel.
 
-## 🛣️ Future Roadmap
-[ ] Add post-processing effects (e.g., bloom, depth of field) for enhanced visual fidelity.
+**Framework Preset: Vite**
 
-[ ] Implement advanced interactive models for individual project showcases.
+**Build Command: npm run build**
 
-[ ] Optimize 3D asset loading times and compress geometries.
+**Output Directory: dist**
 
+Note: Ensure that Environment Variables are also configured in your Vercel Project Settings for the live contact form to function properly.
 
-   

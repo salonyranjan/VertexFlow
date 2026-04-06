@@ -2,7 +2,9 @@ const navLinks = [
   { name: "Work", link: "#work" },
   { name: "Experience", link: "#experience" },
   { name: "Skills", link: "#skills" },
-  { name: "Projects", link: "#projects" }, // Changed from Testimonials
+  { name: "Certifications", link: "#certifications" },
+  { name: "Projects", link: "#projects" }, 
+  
 ];
 
 const words = [
@@ -17,9 +19,9 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 2026, suffix: "", label: "Expected Graduation" },
-  { value: 8.02, suffix: "", label: "CGPA" },
-  { value: 5, suffix: "+", label: "Completed Projects" },
+  { value: 8.2, suffix: "", label: "CGPA, B.Tech- Computer Science & Business System (Netaji Subhash Engineering College, Kolkata)" },
+  { value: 87, suffix: "%", label: "MARKS, XII BD Public School, Patna" },
+  { value: 74, suffix: "%", label: "MARKS, X St Joseph’s Convent High School, Patna" },
   { value: 3, suffix: "", label: "Professional Internships" }, // Updated to 3 based on resume [cite: 25, 29, 32]
 ];
 
@@ -60,7 +62,7 @@ const techStackIcons = [
 const expCards = [
   {
     review: "Assisted in technical projects and gained practical experience in a government IT environment.",
-    imgPath: "/images/exp01.png",
+    imgPath: "/images/exp01.jpg",
     logoPath: "/images/nielit-logo.png", 
     title: "Work-Based Learning Intern",
     date: "September 2025 - March 2026",
@@ -95,74 +97,87 @@ const expCards = [
   },
 ];
 
-const projects = [
+ const projects = [
   {
     name: "MediQuery.ai",
-    tech: "LLMs, LangChain, Pinecone, Flask, AWS",
-    review: "A robust medical chatbot designed to provide intelligent querying capabilities using advanced natural language processing and vector databases.",
+    tech: "LLMs, LangChain, Pinecone, AWS",
+    review: "Architected a RAG-based medical chatbot. Leveraged vector databases and advanced NLP to parse complex queries and retrieve highly accurate, context-aware healthcare information.",
     imgPath: "/images/project-mediquery.png", 
+    githubLink: "https://github.com/salonyranjan/MediQuery.ai", // Add your repo link here
+    liveLink: "https://13.60.62.104:8080",   // Add live demo link here
   },
   {
     name: "SkillBridge AI",
-    tech: "React, Full-Stack, AI",
-    review: "A career development application featuring automated resume analysis, skill gap identification, and AI-powered interview question generation.",
-    imgPath: "/images/project-skillbridge.png",
+    tech: "React, Node.js, GenAI",
+    review: "Engineered a full-stack AI career coach. Features automated resume parsing, dynamic skill-gap analysis, and real-time generation of tailored interview questions to accelerate job readiness.",
+    imgPath: "/images/project01.png",
+    githubLink: "https://github.com/salonyranjan/SkillBridge-AI",
+    liveLink: "https://skill-bridge-ai-orpin.vercel.app",
   },
   {
     name: "RoleRadar",
-    tech: "AI Agents, MCP",
-    review: "An intelligent job discovery tool that provides tailored role recommendations based on context extracted directly from user resumes.",
+    tech: "AI Agents, MCP, Python",
+    review: "Developed an agentic job discovery platform. Utilizes autonomous AI agents to deeply analyze resume context and intelligently map candidate profiles to hyper-relevant market opportunities.",
     imgPath: "/images/project-roleradar.png",
+    githubLink: "https://github.com/salonyranjan/RoleRadar",
+    liveLink: "https://roleradarz.streamlit.app/",
   },
   {
     name: "OpenShelf E2E",
-    tech: "Full-Stack, Machine Learning",
-    review: "An end-to-end machine learning application built to analyze preferences and deliver highly personalized book recommendations.",
+    tech: "Full-Stack, Collaborative Filtering",
+    review: "Deployed an end-to-end machine learning recommendation engine. Processes user preference data through collaborative filtering algorithms to deliver highly personalized reading queues.",
     imgPath: "/images/project-openshelf.png",
+    githubLink: "https://github.com/salonyranjan/OpenShelf-E2E",
+    liveLink: "https://16.171.41.72:8501",
   },
   {
     name: "QuickCart",
-    tech: "Next.js, React",
-    review: "A highly scalable, full-stack e-commerce platform engineered for fast performance and seamless user experiences.",
+    tech: "Next.js, React, Tailwind",
+    review: "Built a high-performance e-commerce architecture. Optimized for speed and SEO using server-side rendering (SSR), featuring a seamless checkout flow and scalable state management.",
     imgPath: "/images/project-quickcart.png",
+    githubLink: "https://github.com/salonyranjan/QuickCart",
+    liveLink: "https://quick-cart-blush-alpha.vercel.app",
+  },
+  {
+    name: "ZenithRag",
+    tech: "Python, LangChain, Vector DB, LLMs",
+    review: "Architected an advanced Retrieval-Augmented Generation (RAG) system. Engineered a high-throughput pipeline integrating document parsing, semantic search, and LLM synthesis to deliver precise, context-aware answers from custom knowledge bases.",
+    imgPath: "/images/project-zenithrag.png", 
+    githubLink: "https://github.com/salonyranjan/ZenithRAG", 
+    liveLink: "https://13.60.233.173:8080", 
   },
 ];
-
-const certifications = [
+ const certifications = [
   {
     name: "Machine Learning Specialization",
     issuer: "DeepLearning.AI / Stanford",
-    date: "December 2024 [cite: 24]",
+    date: "December 2024", // Removed the
+    link: "https://www.coursera.org/account/accomplishments/specialization/B4IO9L50FAKB", // ADD YOUR LINK
   },
   {
     name: "Google Data Analytics Professional Certificate",
     issuer: "Coursera",
-    date: "August 2025 [cite: 49]",
+    date: "August 2025", 
+    link: "https://www.credly.com/badges/f2f9bf2b-8078-43b2-8deb-d37dc51856e3/print", // ADD YOUR LINK
   },
   {
     name: "Generative AI with AWS",
     issuer: "Udacity",
-    date: "June 2025 [cite: 49]",
+    date: "June 2025", 
+    link: "https://www.udacity.com/certificate/e/f4d2a62e-3e33-11f0-b016-5335f13fd6b5", // ADD YOUR LINK
   },
   {
     name: "Technology Job Simulation",
     issuer: "Deloitte (via Forage)",
-    date: "June 2025 [cite: 50]",
+    date: "June 2025", 
+    link: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_EL2GD8h4cdD8jp3Rn_1751207904140_completion_certificate.pdf", // ADD YOUR LINk
   },
 ];
-
 const logoIconsList = [
-  { imgPath: "/images/logos/company-logo-1.png" },
+  { imgPath: "/images/logos/company-logo-1.jpg" },
   { imgPath: "/images/logos/company-logo-2.png" },
   { imgPath: "/images/logos/company-logo-3.png" },
   { imgPath: "/images/logos/company-logo-4.png" },
-  { imgPath: "/images/logos/company-logo-5.png" },
-  { imgPath: "/images/logos/company-logo-6.png" },
-  { imgPath: "/images/logos/company-logo-7.png" },
-  { imgPath: "/images/logos/company-logo-8.png" },
-  { imgPath: "/images/logos/company-logo-9.png" },
-  { imgPath: "/images/logos/company-logo-10.png" },
-  { imgPath: "/images/logos/company-logo-11.png" },
 ];
 
 const expLogos = [
@@ -172,10 +187,8 @@ const expLogos = [
 ];
 
 const socialImgs = [
-  { name: "insta", imgPath: "/images/insta.png" },
-  { name: "fb", imgPath: "/images/fb.png" },
-  { name: "x", imgPath: "/images/x.png" },
-  { name: "linkedin", imgPath: "/images/linkedin.png" },
+  { name: "github",link: "https://github.com/salonyranjan", imgPath: "/images/github.png" },
+  { name: "linkedin",link: "https://www.linkedin.com/in/salony-ranjan-b63200280", imgPath: "/images/linkedin.png" },
 ];
 
 export {

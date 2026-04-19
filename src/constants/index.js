@@ -24,25 +24,23 @@ const counterItems = [
   { value: 74, suffix: "%", label: "MARKS, X St Joseph’s Convent High School, Patna" },
   { value: 3, suffix: "", label: "Professional Internships" }, // Updated to 3 based on resume [cite: 25, 29, 32]
 ];
-
-const abilities = [
+ const abilities = [
   {
-    imgPath: "/images/seo.png",
-    title: "AI & Machine Learning",
-    desc: "Developing intelligent systems using Python, LLMs, and data analytics to solve complex problems.",
+    imgPath: "/images/ai-brain.png",
+    title: "Generative AI & RAG",
+    desc: "Designing low-latency AI agents and retrieval-augmented systems with Gemini 2.5 Flash, LangChain, and vector databases like Pinecone.",
   },
   {
-    imgPath: "/images/chat.png",
-    title: "Full-Stack Development",
-    desc: "Building scalable and responsive web applications using React, Next.js, and Node.js.",
+    imgPath: "/images/fullstack-layers.png",
+    title: "Full-Stack Engineering",
+    desc: "Building production-ready applications with the MERN stack, Next.js 15, and secure JWT and OAuth 2.0-based architectures.",
   },
   {
-    imgPath: "/images/time.png",
-    title: "Continuous Learning",
-    desc: "From cryptography to 3D web rendering, always expanding my technical toolkit.",
+    imgPath: "/images/data-cloud.png",
+    title: "Data & Cloud Architecture",
+    desc: "Creating scalable BI pipelines and distributed systems using AWS, Apache Spark, and Hadoop to turn large datasets into actionable insights.",
   },
 ];
-
 const techStackImgs = [
   { name: "React / Next.js", imgPath: "/images/logos/react.png" },
   { name: "Python / AI", imgPath: "/images/logos/python.svg" },

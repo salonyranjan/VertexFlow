@@ -30,7 +30,7 @@ VertexFlow is engineered to bridge the gap between high-end 3D graphics and func
     </tr>
     <tr>
       <td width="50%">
-        <p align="center"><b>🛠️ Tech Stack Visualization</b></p>
+        <p align="center"><b>✨ Featured Projects</b></p>
         <img src="./public/images/visual-stack.png" width="400" alt="Animated Tech Stack"/>
         <p><i>GSAP-orchestrated timelines revealing technical proficiency on scroll.</i></p>
       </td>

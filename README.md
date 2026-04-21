@@ -9,7 +9,49 @@
 Welcome to the source code for my personal developer portfolio, **VertexFlow**. This project is a highly interactive, 3D-powered web experience designed to showcase my journey as a Full-Stack and AI/ML Developer. 
 
 🔗 **[View Live Portfolio](https://vertex-flow-phi.vercel.app/)**
+---
+## 📱 Visual Experience
 
+VertexFlow is engineered to bridge the gap between high-end 3D graphics and functional web interfaces. The experience is centered around fluid motion and depth.
+
+<div align="center">
+  <table style="width:100%; text-align:center;">
+    <tr>
+      <td width="50%">
+        <p align="center"><b>🌌 Immersive Hero Scene</b></p>
+        <img src="./public/images/visual-hero.png" width="400" alt="3D Hero Section"/>
+        <p><i>Real-time WebGL environment built with Three.js and custom shaders.</i></p>
+      </td>
+      <td width="50%">
+        <p align="center"><b>🚀 Project Showcase</b></p>
+        <img src="./public/images/visual-projects.png" width="400" alt="3D Project Grid"/>
+        <p><i>Interactive 3D cards with hover-responsive tilt and parallax effects.</i></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <p align="center"><b>🛠️ Tech Stack Visualization</b></p>
+        <img src="./public/images/visual-stack.png" width="400" alt="Animated Tech Stack"/>
+        <p><i>GSAP-orchestrated timelines revealing technical proficiency on scroll.</i></p>
+      </td>
+      <td width="50%">
+        <p align="center"><b>✉️ Cinematic Contact</b></p>
+        <img src="./public/images/visual-contact.png" width="400" alt="Contact Form UI"/>
+        <p><i>Glassmorphic UI design optimized for high-conversion and sleek interaction.</i></p>
+      </td>
+    </tr>
+  </table>
+
+  <br />
+  <i>"VertexFlow leverages React Three Fiber and GSAP to deliver a silky-smooth 60 FPS experience that adapts seamlessly across all device tiers."</i>
+</div>
+
+---
+
+### 🎨 Design Highlights
+* **Glassmorphic UI:** Utilizing backdrop blurs and semi-transparent layers for a modern, futuristic feel.
+* **Motion Blur & Bloom:** Custom post-processing effects to enhance the cinematic quality of 3D renders.
+* **Responsive Camera:** Dynamically adjusted Field of View (FOV) to ensure the 3D scene looks perfect on both mobile and ultra-wide displays.
 ---
 ## ✨ Key Features
 

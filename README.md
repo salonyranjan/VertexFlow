@@ -1,12 +1,14 @@
 # 🌌 VertexFlow - Interactive 3D Developer Portfolio
 
-![Live Status](https://img.shields.io/badge/Status-Live-success)
-![Framework](https://img.shields.io/badge/Framework-React%20%2B%20Vite-blue)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=vercel)](https://vertex-flow-phi.vercel.app)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Three.js](https://img.shields.io/badge/Three.js-Black?style=for-the-badge&logo=three.dot-js)](https://threejs.org/)
+[![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock)](https://gsap.com/)
 ![3D](https://img.shields.io/badge/3D-Three.js%20%7C%20Fiber-black)
 
 Welcome to the source code for my personal developer portfolio, **VertexFlow**. This project is a highly interactive, 3D-powered web experience designed to showcase my journey as a Full-Stack and AI/ML Developer. 
 
-🔗 **[View Live Portfolio](https://vertex-flow-3h66oz0m7-salonyranjans-projects.vercel.app)**
+🔗 **[View Live Portfolio](https://vertex-flow-phi.vercel.app/)**
 
 ---
 ## ✨ Features

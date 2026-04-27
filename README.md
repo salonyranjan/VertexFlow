@@ -413,7 +413,7 @@ I am a Full-Stack Developer and AI Enthusiast passionate about building immersiv
 
 <p align="center">
   <i>"Code is poetry in motion."</i><br>
-  <b>Salony © 2026</b>
+  <b>Salony Ranjan © 2026</b>
 </p>
 
 

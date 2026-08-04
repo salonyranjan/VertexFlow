@@ -126,7 +126,7 @@ const expCards = [
     tech: "Next.js 15, Groq Llama-4 Vision, NIH RxNav API, TypeScript",
     review:
       "Clinical safety terminal that converts handwritten prescriptions into structured, actionable medical data in under 50ms. Uses OCR-free vision parsing via Llama-4 and cross-references live NIH RxNav data to flag dosage errors and drug interactions in real time.",
-    imgPath: "/images/project-rxscan.png",
+    imgPath: "/images/rxscan.png",
     githubLink: "https://github.com/salonyranjan/RxScan-AI",
     liveLink: "",
   },
@@ -144,7 +144,7 @@ const expCards = [
     tech: "Next.js, WebSockets, TypeScript, Tailwind CSS",
     review:
       "High-frequency trading-style dashboard streaming live market data with ultra-low-latency WebSocket telemetry. Engineered for continuous data flow and instant price updates rather than static, polling-based charts.",
-    imgPath: "/images/project-bitflow.png",
+    imgPath: "/images/bitflow.png",
     githubLink: "https://github.com/salonyranjan/BitFlow",
     liveLink: "https://bit-flow-two.vercel.app",
   },

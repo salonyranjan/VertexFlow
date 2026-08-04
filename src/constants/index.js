@@ -128,7 +128,7 @@ const expCards = [
       "Clinical safety terminal that converts handwritten prescriptions into structured, actionable medical data in under 50ms. Uses OCR-free vision parsing via Llama-4 and cross-references live NIH RxNav data to flag dosage errors and drug interactions in real time.",
     imgPath: "/images/rxscan.png",
     githubLink: "https://github.com/salonyranjan/RxScan-AI",
-    liveLink: "",
+    liveLink: "https://rx-scan-ai.vercel.app/",
   },
   {
     name: "Neural Map | 3D Force-Directed Knowledge Graph",

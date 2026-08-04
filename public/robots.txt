@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://vertex-flow-phi.vercel.app/sitemap.xml

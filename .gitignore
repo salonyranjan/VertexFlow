@@ -7,9 +7,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependency directories
 node_modules
+jspm_packages
+
+# Production Build & Output
 dist
 dist-ssr
+build
 *.local
 
 # Editor directories and files
@@ -23,10 +28,7 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment Variables & Secrets
 .env
 .env.local
 .env.*
-node_modules/
-dist/
-build/
-.DS_Store

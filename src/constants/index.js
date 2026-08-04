@@ -135,7 +135,7 @@ const expCards = [
     tech: "React, Three.js, React Three Fiber, Next.js, Python, AWS",
     review:
       "Reimagines the portfolio format as an explorable 3D universe — a physics-driven, force-directed graph rendered with custom Three.js shaders. A modular data engine pulls live GitHub activity to auto-generate and connect project nodes in real time.",
-    imgPath: "/images/project-neuralportfolio.png",
+    imgPath: "/images/neural.gif",
     githubLink: "https://github.com/salonyranjan/neural-portfolio",
     liveLink: "https://neural-portfolio.vercel.app",
   },

@@ -1,6 +1,11 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 
+const seededRandom = (seed) => {
+  const value = Math.sin(seed * 999.91) * 43758.5453;
+  return value - Math.floor(value);
+};
+
 const Particles = ({ count = 200 }) => {
   const mesh = useRef();
 
@@ -9,11 +14,11 @@ const Particles = ({ count = 200 }) => {
     for (let i = 0; i < count; i++) {
       temp.push({
         position: [
-          (Math.random() - 0.5) * 10,
-          Math.random() * 10 + 5, // higher starting point
-          (Math.random() - 0.5) * 10,
+          (seededRandom(i * 3 + 1) - 0.5) * 10,
+          seededRandom(i * 3 + 2) * 10 + 5,
+          (seededRandom(i * 3 + 3) - 0.5) * 10,
         ],
-        speed: 0.005 + Math.random() * 0.001,
+        speed: 0.005 + seededRandom(i + 100) * 0.001,
       });
     }
     return temp;
@@ -24,7 +29,7 @@ const Particles = ({ count = 200 }) => {
     for (let i = 0; i < count; i++) {
       let y = positions[i * 3 + 1];
       y -= particles[i].speed;
-      if (y < -2) y = Math.random() * 10 + 5;
+      if (y < -2) y = seededRandom(i + 200) * 10 + 5;
       positions[i * 3 + 1] = y;
     }
     mesh.current.geometry.attributes.position.needsUpdate = true;

@@ -18,41 +18,19 @@ const words = [
   { text: "Code", imgPath: "/images/code.svg" },
 ];
 
-const counterItems = [
-  { 
-    value: 600, 
-    suffix: "ms", 
-    label: "Sub-600ms latency achieved in SonicPrep AI using Gemini 2.5 Pro & WebRTC" 
-  }, 
-  { 
-    value: 8, 
-    suffix: "", 
-    label: "Infosys Pragati Cohort 8 selection recognizing elite technical aptitude" 
-  }, 
-  { 
-    value: 3, 
-    suffix: "", 
-    label: "Professional Internships including NIELIT Bihar & Edunet Foundation" 
-  }, 
-  { 
-    value: 10, 
-    suffix: "+", 
-    label: "Production-ready AI & Full-Stack Projects (RAG, Agents, & Cloud Ops)" 
-  }, 
-];
  const abilities = [
   {
-    imgPath: "/images/ai-brain.png",
+    imgPath: "/images/ai-brain.webp",
     title: "Generative AI & RAG",
     desc: "Designing low-latency AI agents and retrieval-augmented systems with Gemini 2.5 Flash, LangChain, and vector databases like Pinecone.",
   },
   {
-    imgPath: "/images/fullstack-layers.png",
+    imgPath: "/images/fullstack-layers.webp",
     title: "Full-Stack Engineering",
     desc: "Building production-ready applications with the MERN stack, Next.js 15, and secure JWT and OAuth 2.0-based architectures.",
   },
   {
-    imgPath: "/images/data-cloud.png",
+    imgPath: "/images/data-cloud.webp",
     title: "Data & Cloud Architecture",
     desc: "Creating scalable BI pipelines and distributed systems using AWS, Apache Spark, and Hadoop to turn large datasets into actionable insights.",
   },
@@ -65,13 +43,6 @@ const techStackImgs = [
   { name: "Git & Version Control", imgPath: "/images/logos/git.svg" },
 ];
 
-const techStackIcons = [
-  { name: "React", modelPath: "/models/react_logo-transformed.glb", scale: 1, rotation: [0, 0, 0] },
-  { name: "Python", modelPath: "/models/python-transformed.glb", scale: 0.8, rotation: [0, 0, 0] },
-  { name: "Backend", modelPath: "/models/node-transformed.glb", scale: 5, rotation: [0, -Math.PI / 2, 0] },
-  { name: "3D Graphics", modelPath: "/models/three.js-transformed.glb", scale: 0.05, rotation: [0, 0, 0] },
-  { name: "Version Control", modelPath: "/models/git-svg-transformed.glb", scale: 0.05, rotation: [0, -Math.PI / 4, 0] },
-];
 
 const expCards = [
   {
@@ -118,7 +89,7 @@ const expCards = [
     review:
       "Full-stack logistics platform tackling food waste with geolocation-based donor-NGO matching, scoring 99/100 on PageSpeed. Powers sub-200ms AI food-matching via Groq LPU inference, automates surplus identification with Vision AI, and secures every handoff with OTP verification and live GPS tracking over Socket.io.",
     imgPath: "/images/project-resqplate.png",
-    githubLink: "https://github.com/salonyranjan/frontend-ResQplate-",
+    githubLink: "https://github.com/salonyranjan/ResQpla8",
     liveLink: "https://res-q-plate.vercel.app",
   },
   {
@@ -153,7 +124,7 @@ const expCards = [
     tech: "React, Vite, Tailwind CSS, Framer Motion",
     review:
       "Fast, focused interview-prep platform built for momentum — near-instant UI transitions and a fluid, distraction-free workflow help candidates drill technical concepts at speed without breaking flow.",
-    imgPath: "/images/project-sonicprep.png",
+    imgPath: "/images/project-sonicprep.webp",
     githubLink: "https://github.com/salonyranjan/sonic-prep",
     liveLink: "https://sonic-prep.vercel.app",
   },
@@ -173,7 +144,7 @@ const expCards = [
       "Full-stack social platform for archiving life's digital footprint, built on a decoupled client-server architecture with JWT-secured auth and Redux-managed global state. Designed around a minimalist, cinematic UI for documenting memories.",
     imgPath: "/images/project-rewind.png",
     githubLink: "https://github.com/salonyranjan/Rewind",
-    liveLink: "https://rewind-memories.vercel.app",
+    liveLink: "https://rewind-pied.vercel.app",
   },
   {
     name: "MediQuery.ai | RAG-Based Medical Assistant",
@@ -253,13 +224,11 @@ export {
   words,
   abilities,
   logoIconsList,
-  counterItems,
   expCards,
   expLogos,
   projects,
   certifications,
   socialImgs,
-  techStackIcons,
   techStackImgs,
   navLinks,
 };

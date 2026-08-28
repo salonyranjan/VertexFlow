@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="canonical" href="https://vertex-flow-phi.vercel.app/" />
 
     <!-- Primary SEO -->
     <title>Salony Ranjan | VertexFlow — 3D Developer Portfolio</title>
@@ -31,8 +33,26 @@
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Salony Ranjan",
+        "url": "https://vertex-flow-phi.vercel.app/",
+        "image": "https://vertex-flow-phi.vercel.app/images/salony-ranjan.jpg",
+        "jobTitle": "Full-Stack and AI Engineer",
+        "sameAs": [
+          "https://github.com/salonyranjan",
+          "https://www.linkedin.com/in/salony-ranjan-b63200280/"
+        ],
+        "knowsAbout": ["Full-Stack Development", "Artificial Intelligence", "React", "Three.js", "Generative AI"]
+      }
+    </script>
   </head>
   <body>
+    <script>
+      document.documentElement.dataset.theme = localStorage.getItem("vertexflow-theme") || "dark";
+    </script>
     <div id="root"></div>
     <!-- Main Entry Point -->
     <script type="module" src="/src/main.jsx"></script>

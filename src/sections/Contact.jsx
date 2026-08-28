@@ -7,6 +7,7 @@ import ContactExperience from "../components/models/contact/ContactExperience";
 const Contact = () => {
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", message: "" });
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -20,27 +21,36 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loading state
+    setLoading(true);
+    setStatus({ type: "", message: "" });
+
+    const serviceId = import.meta.env.VITE_APP_EMAILJS_SERVICE_ID || import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID || import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY || import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     try {
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("Email service is not configured.");
+      }
       await emailjs.sendForm(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        serviceId,
+        templateId,
         formRef.current,
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        publicKey
       );
 
-      // Reset form and stop loading
       setForm({ name: "", email: "", message: "" });
+      setStatus({ type: "success", message: "Message sent successfully. I’ll get back to you soon." });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error("EmailJS Error:", error);
+      setStatus({ type: "error", message: "The message could not be sent. Please connect with me on LinkedIn." });
     } finally {
-      setLoading(false); // Always stop loading, even on error
+      setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="flex-center section-padding">
+    <section className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="Get in Touch – Let’s Connect"
@@ -104,6 +114,11 @@ const Contact = () => {
                     </div>
                   </div>
                 </button>
+                {status.message && (
+                  <p role="status" aria-live="polite" className={status.type === "success" ? "text-emerald-400 text-sm" : "text-red-400 text-sm"}>
+                    {status.message}
+                  </p>
+                )}
               </form>
             </div>
           </div>

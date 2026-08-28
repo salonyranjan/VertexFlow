@@ -1,3 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+build/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Test and coverage output
+coverage/
+.nyc_output/
+
+# Tool caches
+.vite/
+.cache/
+.eslintcache
+.vercel/
+.chrome-audit/
+.chrome-*/
+.edge-audit*/
+
 # Logs
 logs/
 *.log
@@ -5,41 +32,22 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Production build & output
-dist/
-dist-ssr/
-build/
-*.local
-
-# Editor directories and files
+# Editors
+.idea/
 .vscode/*
 !.vscode/extensions.json
-.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# OS files
+# Operating system files
 .DS_Store
 Thumbs.db
+Desktop.ini
 
-# Environment variables & secrets
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Vercel
-.vercel
-
-# Testing / coverage
-coverage/
+# Local audit artifacts
+mobile-audit*.png
+lighthouse-report.*

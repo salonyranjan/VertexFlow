@@ -122,7 +122,6 @@ const AppShowcase = () => {
 
   return (
     <section
-      id="work"
       ref={sectionRef}
       className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
     >
@@ -162,6 +161,8 @@ const AppShowcase = () => {
                   <img
                     src={project.image}
                     alt={project.alt}
+                    loading="lazy"
+                    decoding="async"
                     className={`relative z-10 h-auto w-full rounded-xl object-cover transition-transform duration-500 group-hover:scale-[1.02] ${
                       project.title === "CineNative"
                         ? "max-h-[320px]"

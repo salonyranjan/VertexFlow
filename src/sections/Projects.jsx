@@ -23,7 +23,7 @@ const Projects = () => {
           scrollTrigger: {
             trigger: card,
             start: 'top 85%',
-            toggleActions: 'play none none reverse', // FIXED: Was 'toggle'
+            toggleActions: 'play none none reverse',
           }
         }
       );
@@ -31,7 +31,7 @@ const Projects = () => {
   }, { scope: containerRef });
 
   return (
-    <section id="projects" ref={containerRef} className="py-24 px-6 md:px-12 max-w-7xl mx-auto z-10 relative bg-black">
+    <section ref={containerRef} className="py-24 px-6 md:px-12 max-w-7xl mx-auto z-10 relative bg-black">
       <div className="mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
           Featured <span className="text-emerald-500">Projects</span>
@@ -51,12 +51,14 @@ const Projects = () => {
               <img 
                 src={project.imgPath} 
                 alt={project.name} 
+                loading="lazy"
+                decoding="async"
                 className="object-cover w-full h-full opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
               
               <div className="absolute bottom-4 left-4 z-20">
-                <span className="text-xs font-mono bg-black/90 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30 backdrop-blur-sm">
+                <span className="project-tech-badge text-xs font-mono bg-black/90 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30 backdrop-blur-sm">
                   {project.tech}
                 </span>
               </div>
@@ -71,10 +73,8 @@ const Projects = () => {
               </p>
             </div>
             
-            {/* UPDATED FOOTER: Dual Links */}
             <div className="pt-4 border-t border-gray-800 mt-auto flex items-center justify-between">
               
-              {/* GitHub / Repo Link */}
               <a 
                 href={project.githubLink || "#"} 
                 target="_blank" 
@@ -87,7 +87,6 @@ const Projects = () => {
                 Code
               </a>
 
-              {/* Live Demo Link */}
               <a 
                 href={project.liveLink || "#"} 
                 target="_blank" 

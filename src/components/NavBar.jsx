@@ -1,96 +1,77 @@
-import { useState, useEffect } from "react";
-import { useLenis } from "lenis/react";
+import { useEffect, useState } from "react";
 import { navLinks } from "../constants";
 
+const SunIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>;
+const MoonIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.5A8.5 8.5 0 018.5 3.6 8.5 8.5 0 1020.4 15.5z"/></svg>;
+
 const NavBar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const lenis = useLenis();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem("vertexflow-theme") || "dark");
+  const [active, setActive] = useState("hero");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Trigger background change after 20px of scrolling
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("vertexflow-theme", theme);
+  }, [theme]);
 
-  const handleNavClick = (e, link) => {
-    // Only intercept internal hash links
-    if (link.startsWith("#")) {
-      e.preventDefault();
-      
-      // Use Lenis for buttery smooth scrolling
-      if (lenis) {
-        lenis.scrollTo(link, {
-          offset: -100, // Leaves space so the header doesn't cover the section title
-          duration: 1.5,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-      }
-    }
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    const sections = ["hero", ...navLinks.map(({ link }) => link.slice(1)), "contact"]
+      .map((id) => document.getElementById(id)).filter(Boolean);
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActive(visible.target.id);
+    }, { rootMargin: "-28% 0px -62%", threshold: [0, .2, .5] });
+    sections.forEach((section) => observer.observe(section));
+    return () => { window.removeEventListener("scroll", onScroll); observer.disconnect(); };
+  }, []);
 
-  return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        scrolled 
-          ? "py-4 bg-black/70 backdrop-blur-xl border-b border-emerald-500/20 shadow-[0_10px_30px_-10px_rgba(16,185,129,0.1)]" 
-          : "py-8 bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        
-        {/* LOGO: Neon Pulse Effect */}
-        <a 
-          href="#hero" 
-          onClick={(e) => handleNavClick(e, "#hero")}
-          className="group relative font-black text-2xl tracking-tighter text-white select-none"
-        >
-          Vertex<span className="text-emerald-500 group-hover:animate-pulse transition-all">Flow</span>
-          {/* Subtle neon indicator dot */}
-          <span className="absolute -right-3 top-1 size-1.5 bg-emerald-500 rounded-full shadow-[0_0_12px_#10b981]" />
-        </a>
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
-        {/* DESKTOP NAV: Animated Underline */}
-        <nav className="hidden md:block">
-          <ul className="flex items-center gap-10">
-            {navLinks.map(({ link, name }) => (
-              <li key={name} className="relative group">
-                <a 
-                  href={link}
-                  onClick={(e) => handleNavClick(e, link)}
-                  className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 group-hover:text-emerald-400 transition-all duration-300"
-                >
-                  {name}
-                  {/* Neon Underline Trace */}
-                  <span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-emerald-500 shadow-[0_0_10px_#10b981] transition-all duration-500 group-hover:w-full" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+  const navigate = (event, link) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    const target = document.querySelector(link);
+    if (target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
 
-        {/* CTA BUTTON: Cyberpunk Glow */}
-        <a 
-          href="#contact" 
-          onClick={(e) => handleNavClick(e, "#contact")}
-          className="relative group overflow-hidden px-6 py-2.5 rounded-lg border border-emerald-500/40 hover:border-emerald-500 transition-all duration-300"
-        >
-          {/* Background fill on hover */}
-          <div className="absolute inset-0 w-0 bg-emerald-500 transition-all duration-300 group-hover:w-full" />
-          
-          <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.25em] text-emerald-500 group-hover:text-black transition-colors">
-            Initiate Contact
-          </span>
+  return (
+    <header className={`vf-navbar ${scrolled ? "is-scrolled" : ""}`}>
+      <div className="vf-nav-inner">
+        <a href="#hero" className="vf-brand" onClick={(event) => navigate(event, "#hero")} aria-label="VertexFlow home">
+          <span className="vf-brand-name">Vertex<span>Flow</span></span>
+          <span className="vf-brand-dot" aria-hidden="true" />
+        </a>
 
-          {/* Corner geometric accents for that 'Eng' feel */}
-          <div className="absolute top-0 left-0 size-1 border-t border-l border-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="absolute bottom-0 right-0 size-1 border-b border-r border-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
-        </a>
-      </div>
-    </header>
-  );
-}
+        <nav className={`vf-nav-menu ${menuOpen ? "is-open" : ""}`} aria-label="Main navigation">
+          <div className="vf-mobile-label">Navigation</div>
+          {navLinks.map(({ link, name }, index) => (
+            <a key={name} href={link} onClick={(event) => navigate(event, link)} className={active === link.slice(1) ? "is-active" : ""}>
+              <span className="vf-nav-index">0{index + 1}</span><span>{name}</span>
+            </a>
+          ))}
+          <a href="#contact" onClick={(event) => navigate(event, "#contact")} className="vf-mobile-contact">Let’s build something <span>↗</span></a>
+        </nav>
+
+        <div className="vf-nav-actions">
+          <button className="vf-theme-toggle" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+          </button>
+          <a className="vf-contact-link" href="#contact" onClick={(event) => navigate(event, "#contact")}><span>Let’s talk</span><b>↗</b></a>
+          <button className={`vf-menu-toggle ${menuOpen ? "is-open" : ""}`} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? "Close navigation" : "Open navigation"}><i/><i/></button>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 export default NavBar;

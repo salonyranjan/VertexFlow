@@ -52,11 +52,6 @@ const AppShowcase = () => {
         "Engineered with Next.js, Vapi AI, and MongoDB. Achieved sub-100ms context retrieval and low-latency voice orchestration, featuring a full subscription model with Clerk Billing.",
       links: [
         {
-          label: "GitHub",
-          href: "https://github.com/salonyranjan/PageWhisper",
-          primary: false,
-        },
-        {
           label: "Live Demo",
           href: "https://page-whisper.vercel.app",
           primary: true,
@@ -78,11 +73,6 @@ const AppShowcase = () => {
         "Engineered with a modular atomic design and decoupled API logic. Features real-time TMDB integration, cloud-synced watchlists via Appwrite, and image caching for a seamless native experience.",
       links: [
         {
-          label: "GitHub Code",
-          href: "https://github.com/salonyranjan/CineNative",
-          primary: false,
-        },
-        {
           label: "Download APK",
           href: "https://github.com/salonyranjan/CineNative/releases",
           primary: true,
@@ -103,11 +93,6 @@ const AppShowcase = () => {
       description:
         "Engineered with a serverless edge architecture utilizing Gemini 1.5 Pro and Vapi.ai. Features a specialized state machine for low-latency interview management and Pinecone-driven RAG for domain-specific technical evaluation.",
       links: [
-        {
-          label: "GitHub Code",
-          href: "https://github.com/salonyranjan/sonic-prep",
-          primary: false,
-        },
         {
           label: "Live Demo",
           href: "https://sonic-prep.vercel.app",

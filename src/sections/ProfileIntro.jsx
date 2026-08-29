@@ -35,10 +35,6 @@ const ProfileIntro = () => {
             reliable systems, thoughtful interfaces, and digital experiences
             that turn complex ideas into useful products.
           </p>
-          <div className="profile-links">
-            <a href="https://github.com/salonyranjan" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/salony-ranjan-b63200280/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          </div>
         </div>
       </div>
     </section>

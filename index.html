@@ -21,14 +21,16 @@
     <meta property="og:url" content="https://vertex-flow-phi.vercel.app/" />
     <meta property="og:title" content="Salony Ranjan | VertexFlow 3D Experience" />
     <meta property="og:description" content="Cinematic 3D rendering meets fluid animation engineering. See the future of web portfolios." />
-    <meta property="og:image" content="/images/visual-hero.png" />
+    <meta property="og:image" content="https://vertex-flow-phi.vercel.app/images/visual-hero.png" />
+    <meta property="og:image:alt" content="Salony Ranjan's VertexFlow developer portfolio" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://vertex-flow-phi.vercel.app/" />
-    <meta property="twitter:title" content="Salony Ranjan | VertexFlow 3D Experience" />
-    <meta property="twitter:description" content="Cinematic 3D rendering meets fluid animation engineering." />
-    <meta property="twitter:image" content="/images/visual-hero.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://vertex-flow-phi.vercel.app/" />
+    <meta name="twitter:title" content="Salony Ranjan | VertexFlow 3D Experience" />
+    <meta name="twitter:description" content="Cinematic 3D rendering meets fluid animation engineering." />
+    <meta name="twitter:image" content="https://vertex-flow-phi.vercel.app/images/visual-hero.png" />
+    <meta name="twitter:image:alt" content="Salony Ranjan's VertexFlow developer portfolio" />
 
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +53,11 @@
   </head>
   <body>
     <script>
-      document.documentElement.dataset.theme = localStorage.getItem("vertexflow-theme") || "dark";
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("vertexflow-theme") || "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
     </script>
     <div id="root"></div>
     <!-- Main Entry Point -->

@@ -1,9 +1,11 @@
+import { lazy, Suspense } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import Button from "../components/Button";
 import { words } from "../constants";
-import HeroExperience from "../components/models/hero_models/HeroExperience";
+
+const HeroExperience = lazy(() => import("../components/models/hero_models/HeroExperience"));
 
 const Hero = () => {
   useGSAP(() => {
@@ -36,7 +38,7 @@ const Hero = () => {
                       >
                         <img
                           src={word.imgPath}
-                          alt="person"
+                          alt=""
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
                         />
                         <span>{word.text}</span>
@@ -62,7 +64,9 @@ const Hero = () => {
         </header>
         <figure>
           <div className="hero-3d-layout">
-            <HeroExperience />
+            <Suspense fallback={<div className="hero-canvas-fallback" aria-hidden="true" />}>
+              <HeroExperience />
+            </Suspense>
           </div>
         </figure>
       </div>

@@ -1,49 +1,60 @@
 import { certifications } from "../constants";
 
+const ArrowUpRight = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M7 17 17 7M8 7h9v9" />
+  </svg>
+);
+
+const Seal = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="m12 3 2.2 1.6 2.7-.1.8 2.6 2.2 1.5-.9 2.6.9 2.6-2.2 1.5-.8 2.6-2.7-.1L12 21l-2.2-1.6-2.7.1-.8-2.6-2.2-1.5.9-2.6-.9-2.6 2.2-1.5.8-2.6 2.7.1L12 3Z" />
+    <path d="m9.2 12 1.8 1.8 3.9-4" />
+  </svg>
+);
+
 const Certifications = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6">
-      <h2 className="text-3xl md:text-5xl font-bold text-white mb-10 tracking-tighter">
-        <span className="text-emerald-500">My</span> Certifications
-      </h2>
+    <div className="cert-shell max-w-7xl mx-auto px-6">
+      <div className="cert-heading">
+        <div>
+          <div className="cert-eyebrow"><span /> Professional development</div>
+          <h2><span>Professional</span><br />Certifications</h2>
+        </div>
+        <div className="cert-heading-copy">
+          <p>Verified certifications from leading technology organizations, covering data, AI, cloud, security, and business intelligence.</p>
+          <div className="cert-summary">
+            <strong>{String(certifications.length).padStart(2, "0")}</strong>
+            <span>Verified<br />certifications</span>
+          </div>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="cert-grid">
         {certifications.map((cert, index) => (
-          <a 
+          <a
             href={cert.link}
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
-            key={index} 
-            className="relative block p-6 rounded-2xl bg-zinc-900/50 border border-white/5 hover:border-emerald-500/50 hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+            key={cert.link}
+            className="cert-card"
+            aria-label={`View ${cert.name} certificate`}
           >
-            <div className="pr-8">
-              <h3 className="text-xl font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                {cert.name}
-              </h3>
-              <p className="text-emerald-500 mt-2 font-medium">
-                {cert.issuer}
-              </p>
-              <p className="text-zinc-500 text-sm mt-1">
-                {cert.date}
-              </p>
+            <div className="cert-card-glow" />
+            <div className="cert-card-top">
+              <div className="cert-provider" aria-hidden="true">
+                {cert.issuer.charAt(0)}
+              </div>
+              <span className="cert-verified"><Seal /> Verified certification</span>
+              <span className="cert-arrow"><ArrowUpRight /></span>
             </div>
-
-            <div className="absolute top-6 right-6 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300">
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                className="text-emerald-400"
-              >
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
+            <div className="cert-card-body">
+              <span className="cert-index">Certification {String(index + 1).padStart(2, "0")}</span>
+              <h3>{cert.name}</h3>
+            </div>
+            <div className="cert-card-footer">
+              <span>{cert.issuer}</span>
+              <time>{cert.date}</time>
             </div>
           </a>
         ))}

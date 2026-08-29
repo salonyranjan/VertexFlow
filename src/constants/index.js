@@ -21,26 +21,64 @@ const words = [
  const abilities = [
   {
     imgPath: "/images/ai-brain.webp",
-    title: "Generative AI & RAG",
-    desc: "Designing low-latency AI agents and retrieval-augmented systems with Gemini 2.5 Flash, LangChain, and vector databases like Pinecone.",
+    title: "AI Systems Engineering",
+    desc: "Designing production-grade RAG, agentic, vision, and voice systems with grounded retrieval and low-latency inference.",
+    skills: ["LangChain", "Gemini", "Groq", "Vapi", "Vector Search"],
+    proof: "SonicPrep · RxScan AI · ZenithRAG",
   },
   {
     imgPath: "/images/fullstack-layers.webp",
-    title: "Full-Stack Engineering",
-    desc: "Building production-ready applications with the MERN stack, Next.js 15, and secure JWT and OAuth 2.0-based architectures.",
+    title: "Full-Stack Product Engineering",
+    desc: "Building secure, responsive products from interface to data model, with real-time workflows and production-ready architecture.",
+    skills: ["Next.js", "React", "Node.js", "TypeScript", "PostgreSQL"],
+    proof: "ResQPlate · PageWhisper · BitFlow",
+  },
+  {
+    imgPath: "/images/logos/three.png",
+    title: "Creative & Real-Time Interfaces",
+    desc: "Crafting cinematic WebGL experiences, interactive 3D systems, and motion-rich interfaces without sacrificing usability or performance.",
+    skills: ["Three.js", "R3F", "WebGL", "GLSL", "GSAP"],
+    proof: "VertexFlow · Neural Portfolio",
   },
   {
     imgPath: "/images/data-cloud.webp",
-    title: "Data & Cloud Architecture",
-    desc: "Creating scalable BI pipelines and distributed systems using AWS, Apache Spark, and Hadoop to turn large datasets into actionable insights.",
+    title: "Data, Cloud & Delivery",
+    desc: "Shipping containerized AI and data workloads with automated delivery, resilient storage, and decision-ready analytics.",
+    skills: ["AWS", "Docker", "GitHub Actions", "MongoDB", "Power BI"],
+    proof: "MediQuery AI · OpenShelf E2E",
   },
 ];
-const techStackImgs = [
-  { name: "React / Next.js", imgPath: "/images/logos/react.png" },
-  { name: "Python / AI", imgPath: "/images/logos/python.svg" },
-  { name: "Node.js", imgPath: "/images/logos/node.png" },
-  { name: "Interactive 3D", imgPath: "/images/logos/three.png" },
-  { name: "Git & Version Control", imgPath: "/images/logos/git.svg" },
+const techStackGroups = [
+  {
+    title: "Languages",
+    description: "Core languages used across product, data, and systems work.",
+    skills: ["TypeScript", "JavaScript", "Python", "SQL", "C++"],
+  },
+  {
+    title: "Frontend & Creative",
+    description: "Responsive interfaces, motion systems, and real-time 3D experiences.",
+    skills: ["React", "Next.js", "React Native", "Three.js", "React Three Fiber", "Tailwind CSS", "GSAP", "WebGL", "GLSL"],
+  },
+  {
+    title: "Backend & APIs",
+    description: "Secure application services and low-latency, event-driven systems.",
+    skills: ["Node.js", "Express.js", "FastAPI", "Flask", "REST APIs", "WebSockets", "Server Actions", "JWT", "OAuth 2.0"],
+  },
+  {
+    title: "AI & Machine Learning",
+    description: "Production AI workflows spanning retrieval, agents, vision, and voice.",
+    skills: ["LangChain", "RAG", "Agentic AI", "MCP", "PyTorch", "scikit-learn", "Pandas", "Gemini", "Groq / Llama", "Vapi", "ElevenLabs"],
+  },
+  {
+    title: "Data & Storage",
+    description: "Relational, document, vector, and analytics data platforms.",
+    skills: ["PostgreSQL", "MongoDB", "Supabase", "Firebase", "Appwrite", "Prisma", "Pinecone", "FAISS", "ChromaDB", "Power BI"],
+  },
+  {
+    title: "Cloud & Delivery",
+    description: "Cloud infrastructure, containers, deployment, and engineering workflow.",
+    skills: ["AWS", "EC2", "ECR", "Docker", "GitHub Actions", "Git", "Vercel", "Render", "Streamlit"],
+  },
 ];
 
 
@@ -167,22 +205,34 @@ const expCards = [
 ];
 const certifications = [
   {
+    name: "Google Data Analytics Professional Certificate",
+    issuer: "Google (via Coursera)",
+    date: "February 2026",
+    link: "https://coursera.org/share/ec7b0970a78f9e0a2301dd3cf17475f0",
+  },
+  {
+    name: "Introduction to Big Data with Spark and Hadoop",
+    issuer: "IBM (via Coursera)",
+    date: "February 2026",
+    link: "https://coursera.org/share/46b789d4d0c292ae7a1c1b5554cf9162",
+  },
+  {
+    name: "Market Research and Competitive Analysis",
+    issuer: "Microsoft (via Coursera)",
+    date: "February 2026",
+    link: "https://coursera.org/share/bdd827b2de35aae080535d596a48b8d1",
+  },
+  {
+    name: "IT Security: Defense against the Digital Dark Arts",
+    issuer: "Google (via Coursera)",
+    date: "February 2026",
+    link: "https://coursera.org/share/59f5910eca45d6dddfbcbf0689bd95b7",
+  },
+  {
     name: "AWS Business Intelligence Engineer Nanodegree",
     issuer: "Udacity",
     date: "September 2025",
     link: "https://www.udacity.com/certificate/e/4588e288-8144-11f0-bd4b-0381f4b78c87",
-  },
-  {
-    name: "Google Data Analytics Professional Certificate",
-    issuer: "Google (via Coursera)",
-    date: "August 2025", 
-    link: "https://www.credly.com/badges/f2f9bf2b-8078-43b2-8deb-d37dc51856e3/print",
-  },
-  {
-    name: "Big Data with Spark and Hadoop Essentials",
-    issuer: "IBM",
-    date: "July 2025",
-    link: "https://www.credly.com/badges/dd2c182a-da81-4866-8c7a-5bab9f8532fe",
   },
   {
     name: "Generative AI with AWS",
@@ -204,20 +254,15 @@ const certifications = [
   },
 ];
 const logoIconsList = [
-  { imgPath: "/images/logos/company-logo-1.jpg" },
-  { imgPath: "/images/logos/company-logo-2.png" },
-  { imgPath: "/images/logos/company-logo-3.png" },
-  { imgPath: "/images/logos/company-logo-4.png" },
-];
-const expLogos = [
-  { name: "logo1", imgPath: "/images/nielit-logo.png" },
-  { name: "logo2", imgPath: "/images/edunet-logo.jpg" },
-  { name: "logo3", imgPath: "/images/cs-logo.png" },
+  { name: "Edunet Foundation", imgPath: "/images/logos/company-logo-1.jpg" },
+  { name: "NIELIT Work-Based Learning", imgPath: "/images/logos/company-logo-2.png" },
+  { name: "CodeSpeedy", imgPath: "/images/logos/company-logo-3.png" },
+  { name: "Infosys Springboard Pragati", imgPath: "/images/logos/company-logo-4.png" },
 ];
 
 const socialImgs = [
-  { name: "github",link: "https://github.com/salonyranjan", imgPath: "/images/github.png" },
-  { name: "linkedin",link: "https://www.linkedin.com/in/salony-ranjan-b63200280", imgPath: "/images/linkedin.png" },
+  { name: "GitHub", link: "https://github.com/salonyranjan" },
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/salony-ranjan-b63200280" },
 ];
 
 export {
@@ -225,10 +270,9 @@ export {
   abilities,
   logoIconsList,
   expCards,
-  expLogos,
   projects,
   certifications,
   socialImgs,
-  techStackImgs,
+  techStackGroups,
   navLinks,
 };

@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import TitleHeader from "../components/TitleHeader";
-import { techStackImgs } from "../constants";
+import { techStackGroups } from "../constants";
 gsap.registerPlugin(ScrollTrigger);
 
 const TechStack = () => {
@@ -36,34 +36,22 @@ const TechStack = () => {
       <div className="max-w-7xl mx-auto">
         <TitleHeader
           title="Technical Arsenal"
-          sub="🤝 My Key Skills & Tools"
+          sub="Engineering Skills & Tools"
         />
-        <div className="tech-grid mt-20">
-          {techStackImgs.map((tech) => (
-            <div
-              key={tech.name}
-              className="card-border tech-card overflow-hidden group xl:rounded-full rounded-2xl relative bg-[#0a0a0a] border-gray-900 hover:border-emerald-500/50 transition-colors duration-500"
-            >
-              <div className="tech-card-animated-bg opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
-              <div className="tech-card-content relative z-10 flex flex-col items-center justify-center p-10">
-                <div className="tech-icon-wrapper scale-90 group-hover:scale-105 transition-transform duration-500 ease-out">
-                  <img
-                    src={tech.imgPath}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    className="w-28 h-28 object-contain drop-shadow-[0_0_24px_rgba(16,185,129,0.2)]"
-                  />
-                </div>
-
-                <div className="mt-6 text-center">
-                  <p className="font-mono text-emerald-500 font-bold text-lg tracking-widest uppercase">
-                    {tech.name}
-                  </p>
+        <div className="arsenal-grid mt-20">
+          {techStackGroups.map((group, index) => (
+            <article key={group.title} className="arsenal-card tech-card">
+              <div className="arsenal-card-head">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{group.title}</h3>
+                  <p>{group.description}</p>
                 </div>
               </div>
-            </div>
+              <ul aria-label={`${group.title} technologies`}>
+                {group.skills.map((skill) => <li key={skill}>{skill}</li>)}
+              </ul>
+            </article>
           ))}
         </div>
       </div>

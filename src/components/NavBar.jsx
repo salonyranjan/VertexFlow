@@ -4,15 +4,27 @@ import { navLinks } from "../constants";
 const SunIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>;
 const MoonIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 15.5A8.5 8.5 0 018.5 3.6 8.5 8.5 0 1020.4 15.5z"/></svg>;
 
+const getInitialTheme = () => {
+  try {
+    return localStorage.getItem("vertexflow-theme") || "dark";
+  } catch {
+    return "dark";
+  }
+};
+
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem("vertexflow-theme") || "dark");
+  const [theme, setTheme] = useState(getInitialTheme);
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    localStorage.setItem("vertexflow-theme", theme);
+    try {
+      localStorage.setItem("vertexflow-theme", theme);
+    } catch {
+      // Theme still applies when browser storage is unavailable.
+    }
   }, [theme]);
 
   useEffect(() => {
@@ -31,7 +43,19 @@ const NavBar = () => {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    const closeOnDesktop = () => {
+      if (window.innerWidth > 900) setMenuOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("resize", closeOnDesktop);
+    };
   }, [menuOpen]);
 
   const navigate = (event, link) => {

@@ -16,7 +16,7 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm((current) => ({ ...current, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -63,6 +63,7 @@ const Contact = () => {
                 ref={formRef}
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-7"
+                aria-busy={loading}
               >
                 <div>
                   <label htmlFor="name">Your name</label>
@@ -73,6 +74,8 @@ const Contact = () => {
                     value={form.name}
                     onChange={handleChange}
                     placeholder="What’s your good name?"
+                    autoComplete="name"
+                    maxLength="80"
                     required
                   />
                 </div>
@@ -86,6 +89,8 @@ const Contact = () => {
                     value={form.email}
                     onChange={handleChange}
                     placeholder="What’s your email address?"
+                    autoComplete="email"
+                    maxLength="254"
                     required
                   />
                 </div>
@@ -99,11 +104,13 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="How can I help you?"
                     rows="5"
+                    minLength="10"
+                    maxLength="2000"
                     required
                   />
                 </div>
 
-                <button type="submit">
+                <button type="submit" disabled={loading} aria-disabled={loading}>
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">
@@ -115,7 +122,7 @@ const Contact = () => {
                   </div>
                 </button>
                 {status.message && (
-                  <p role="status" aria-live="polite" className={status.type === "success" ? "text-emerald-400 text-sm" : "text-red-400 text-sm"}>
+                  <p role={status.type === "error" ? "alert" : "status"} aria-live="polite" className={status.type === "success" ? "text-emerald-400 text-sm" : "text-red-400 text-sm"}>
                     {status.message}
                   </p>
                 )}

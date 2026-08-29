@@ -1,27 +1,30 @@
 import { socialImgs } from "../constants";
 
-const Footer = () => {
-  return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="flex flex-col justify-center">
-          <p>Terms & Conditions</p>
-        </div>
-        <div className="socials">
-          {socialImgs.map((socialImg, index) => (
-            <a key={index} className="icon" href={socialImg.link} target="_blank" rel="noreferrer" aria-label={`Visit Salony on ${socialImg.name}`}>
-              <img src={socialImg.imgPath} alt="social icon" loading="lazy" decoding="async" />
-            </a>
-          ))}
-        </div>
-        <div className="flex flex-col justify-center">
-          <p className="text-center md:text-end">
-            © {new Date().getFullYear()} Salony Ranjan.    All rights reserved.
-          </p>
-        </div>
+const Footer = () => (
+  <footer className="site-footer">
+    <div className="site-footer-inner">
+      <div className="site-footer-identity">
+        <a className="site-footer-brand" href="#hero" aria-label="Back to the top">
+          Salony<span>Ranjan</span><b>.</b>
+        </a>
+        <p>Full-stack & AI engineer</p>
       </div>
-    </footer>
-  );
-};
+
+      <nav className="site-footer-links" aria-label="Footer navigation">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        {socialImgs.map(({ name, link }) => (
+          <a key={name} href={link} target="_blank" rel="noopener noreferrer">{name} ↗</a>
+        ))}
+      </nav>
+    </div>
+
+    <div className="site-footer-bottom">
+      <p>© {new Date().getFullYear()} Salony Ranjan</p>
+      <a href="#hero">Back to top ↑</a>
+    </div>
+  </footer>
+);
 
 export default Footer;

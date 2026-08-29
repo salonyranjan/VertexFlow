@@ -1,0 +1,17 @@
+{
+  "name": "VertexFlow — Salony Ranjan",
+  "short_name": "VertexFlow",
+  "description": "A full-stack, AI, and 3D engineering portfolio by Salony Ranjan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "2000x2000",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

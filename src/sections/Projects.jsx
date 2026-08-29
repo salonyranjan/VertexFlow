@@ -40,9 +40,9 @@ const Projects = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <div 
-            key={index} 
+            key={project.name}
             className="project-card bg-[#0a0a0a] border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-colors duration-300 group flex flex-col"
           >
             <div className="h-44 w-full bg-gray-900 rounded-lg mb-5 overflow-hidden relative flex-shrink-0">

@@ -4,9 +4,9 @@
 
 # VertexFlow
 
-### Engineering ideas into immersive digital experiences.
+### Engineering ideas into immersive digital experiences
 
-VertexFlow is the interactive developer portfolio of **Salony Ranjan**, bringing together full-stack engineering, artificial intelligence, 3D graphics, and thoughtful interaction design.
+VertexFlow is the interactive developer portfolio of **Salony Ranjan**, combining full-stack engineering, artificial intelligence, 3D graphics, and thoughtful interaction design.
 
 [![React](https://img.shields.io/badge/React-19-149ECA?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
@@ -21,23 +21,17 @@ VertexFlow is the interactive developer portfolio of **Salony Ranjan**, bringing
 
 ## About VertexFlow
 
-VertexFlow presents Salony's work, experience, skills, certifications, and projects through a responsive, motion-rich interface. Its Three.js hero, carefully paced GSAP animations, and persistent light and dark themes create a portfolio that feels cinematic without sacrificing usability.
+VertexFlow presents Salony's work, experience, skills, certifications, and projects through a responsive, motion-rich interface. A Three.js hero, carefully paced GSAP animations, and persistent theme preferences create a cinematic experience without sacrificing usability.
 
 ---
 
 ## Visual showcase
 
-Every application section is shown below in both **light** and **dark** mode, except **About Me**, which is intentionally presented once. Images are displayed at full README width so the interface remains easy to inspect.
+The screenshots below capture every major section in light mode at a consistent desktop width for a clear, uninterrupted preview.
 
 ### Hero
 
-#### Light mode
-
 <img src="./public/screenshots/hero-light.png" width="1200" alt="VertexFlow hero section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/hero-dark.png" width="1200" alt="VertexFlow hero section in dark mode" />
 
 ### About Me
 
@@ -45,63 +39,27 @@ Every application section is shown below in both **light** and **dark** mode, ex
 
 ### Selected Work and Capabilities
 
-#### Light mode
-
 <img src="./public/screenshots/work-light.png" width="1200" alt="VertexFlow selected work and capabilities section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/work-dark.png" width="1200" alt="VertexFlow selected work and capabilities section in dark mode" />
 
 ### Professional Experience
 
-#### Light mode
-
 <img src="./public/screenshots/experience-light.png" width="1200" alt="VertexFlow professional experience section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/experience-dark.png" width="1200" alt="VertexFlow professional experience section in dark mode" />
 
 ### Skills and Tools
 
-#### Light mode
-
 <img src="./public/screenshots/skills-light.png" width="1200" alt="VertexFlow skills and tools section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/skills-dark.png" width="1200" alt="VertexFlow skills and tools section in dark mode" />
 
 ### Certifications
 
-#### Light mode
-
 <img src="./public/screenshots/certifications-light.png" width="1200" alt="VertexFlow certifications section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/certifications-dark.png" width="1200" alt="VertexFlow certifications section in dark mode" />
 
 ### Featured Projects
 
-#### Light mode
-
 <img src="./public/screenshots/projects-light.png" width="1200" alt="VertexFlow featured projects section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/projects-dark.png" width="1200" alt="VertexFlow featured projects section in dark mode" />
 
 ### Contact
 
-#### Light mode
-
 <img src="./public/screenshots/contact-light.png" width="1200" alt="VertexFlow contact section in light mode" />
-
-#### Dark mode
-
-<img src="./public/screenshots/contact-dark.png" width="1200" alt="VertexFlow contact section in dark mode" />
 
 ---
 
@@ -156,7 +114,7 @@ VertexFlow/
 
 ### Requirements
 
-- Node.js compatible with Vite 8
+- Node.js 20.19+ or 22.12+
 - npm
 - Optional EmailJS account for contact-form delivery
 
@@ -181,6 +139,7 @@ For contact-form delivery, copy `.env.example` to `.env` and add your EmailJS cr
 npm run lint
 npm run build
 npm run check
+npm test
 npm run preview
 ```
 
@@ -189,7 +148,10 @@ npm run preview
 | `npm run lint` | Checks the source with ESLint |
 | `npm run build` | Creates the optimized production build |
 | `npm run check` | Runs linting and the production build together |
+| `npm test` | Runs linting, builds the site, and executes desktop and mobile browser checks |
 | `npm run preview` | Serves the production build locally |
+
+Install Playwright's Chromium browser once with `npx playwright install chromium` before running the browser checks locally.
 
 ---
 

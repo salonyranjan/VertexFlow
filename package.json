@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint src",
     "check": "npm run lint && npm run build",
-    "preview": "vite preview"
+    "test": "npm run check && playwright test",
+    "test:e2e": "playwright test",
+    "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@playwright/test": "^1.62.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",

@@ -85,7 +85,7 @@ const AppShowcase = () => {
     {
       ref: sonicRef,
       featured: false,
-      image: "/images/project-sonicprep.png",
+      image: "/images/project-sonicprep.webp",
       alt: "Sonic-Prep Voice Interview Interface",
       title: "Sonic-Prep",
       subtitle:
@@ -108,32 +108,32 @@ const AppShowcase = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      className="relative overflow-hidden py-16 lg:py-20"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.12),transparent_40%),radial-gradient(circle_at_bottom,rgba(59,130,246,0.08),transparent_35%)]" />
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto mb-14 max-w-3xl text-center">
+        <div className="mx-auto mb-10 max-w-3xl text-center">
           <p className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
             Selected Work
           </p>
           <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            A polished showcase of products, motion, and engineering.
+            Products I have built and shipped.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">
-            Each project is presented with a cleaner layout, stronger hierarchy,
-            and a more premium visual rhythm.
+            A closer look at the product decisions, engineering, and interfaces
+            behind three selected builds.
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {projects.map((project) => (
             <article
               key={project.title}
               ref={project.ref}
               className="group relative mx-auto max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 lg:grid lg:grid-cols-2 lg:gap-8"
             >
-              <div className="flex items-center justify-center p-5 sm:p-6 lg:p-8">
+              <div className="flex items-center justify-center p-4 sm:p-6 lg:p-8">
                 <div className="relative w-full max-w-[520px] overflow-hidden rounded-2xl border border-white/10 bg-[#0b1020] p-3 shadow-2xl">
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}`} />
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.08),transparent_35%)] opacity-80" />
@@ -148,7 +148,7 @@ const AppShowcase = () => {
                     alt={project.alt}
                     loading="lazy"
                     decoding="async"
-                    className={`relative z-10 h-auto w-full rounded-xl object-cover transition-transform duration-500 group-hover:scale-[1.02] ${
+                    className={`showcase-image relative z-10 h-auto w-full rounded-xl object-cover transition-transform duration-500 group-hover:scale-[1.02] ${
                       project.title === "CineNative"
                         ? "max-h-[320px]"
                         : project.title === "Sonic-Prep"
@@ -159,7 +159,7 @@ const AppShowcase = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col justify-center p-5 sm:p-6 lg:p-8">
+              <div className="flex flex-col justify-center p-4 pt-1 sm:p-6 lg:p-8">
                 <div className="mb-3 flex items-center gap-3">
                   <span className="h-2 w-2 rounded-full bg-purple-400 shadow-[0_0_14px_rgba(168,85,247,0.8)]" />
                   <span className="text-xs font-medium uppercase tracking-[0.24em] text-white/45">
@@ -175,7 +175,7 @@ const AppShowcase = () => {
                   {project.subtitle}
                 </p>
 
-                <p className="mt-4 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+                <p className="showcase-description mt-3 max-w-xl text-sm leading-6 text-white/70 sm:mt-4 sm:text-base sm:leading-7">
                   {project.description}
                 </p>
 

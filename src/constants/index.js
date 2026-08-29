@@ -167,10 +167,10 @@ const expCards = [
     liveLink: "https://sonic-prep.vercel.app",
   },
   {
-    name: "Z-Axis Cloud | Scalable Infrastructure Framework",
-    tech: "Docker, Container Orchestration, DevOps, Virtualization",
+    name: "Z-Axis Cloud | AI Architectural Visualization",
+    tech: "React 19, TypeScript, Puter.js, Generative AI, Tailwind CSS",
     review:
-      "Cloud infrastructure framework built for high-performance computing workloads — orchestrates containerized, virtualized environments to reliably deploy resource-intensive AI models and microservices at scale.",
+      "AI-powered architectural visualization SaaS that transforms 2D floor plans into photorealistic 3D renders, with a responsive React interface and persistent project metadata.",
     imgPath: "/images/project-zaxis.png",
     githubLink: "https://github.com/salonyranjan/Z-Axis-Cloud",
     liveLink: "https://z-axis-cloud.vercel.app",
@@ -254,9 +254,9 @@ const certifications = [
   },
 ];
 const logoIconsList = [
-  { name: "Edunet Foundation", imgPath: "/images/logos/company-logo-1.jpg" },
-  { name: "NIELIT Work-Based Learning", imgPath: "/images/logos/company-logo-2.png" },
-  { name: "CodeSpeedy", imgPath: "/images/logos/company-logo-3.png" },
+  { name: "Edunet Foundation", imgPath: "/images/edunet-logo.jpg" },
+  { name: "NIELIT Work-Based Learning", imgPath: "/images/nielit-logo.png" },
+  { name: "CodeSpeedy", imgPath: "/images/cs-logo.png" },
   { name: "Infosys Springboard Pragati", imgPath: "/images/logos/company-logo-4.png" },
 ];
 

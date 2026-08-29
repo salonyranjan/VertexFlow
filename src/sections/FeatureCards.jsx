@@ -36,7 +36,7 @@ const FeatureCards = () => {
   return (
     <section
       ref={containerRef}
-      className="capabilities-section relative z-30 w-full overflow-hidden bg-black px-6 py-24 md:px-12"
+      className="capabilities-section relative z-30 w-full overflow-hidden bg-black px-6 py-16 md:px-12 lg:py-20"
       aria-labelledby="feature-cards-heading"
     >
       <div className="capabilities-atmosphere" />

@@ -32,13 +32,13 @@ const TechStack = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="py-32 bg-black px-6 md:px-20 relative z-10">
+    <section ref={containerRef} className="py-16 lg:py-20 bg-black px-6 md:px-20 relative z-10">
       <div className="max-w-7xl mx-auto">
         <TitleHeader
           title="Technical Arsenal"
           sub="Engineering Skills & Tools"
         />
-        <div className="arsenal-grid mt-20">
+        <div className="arsenal-grid mt-12 md:mt-16">
           {techStackGroups.map((group, index) => (
             <article key={group.title} className="arsenal-card tech-card">
               <div className="arsenal-card-head">

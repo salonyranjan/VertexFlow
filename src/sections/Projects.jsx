@@ -31,21 +31,21 @@ const Projects = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="py-24 px-6 md:px-12 max-w-7xl mx-auto z-10 relative bg-black">
-      <div className="mb-16">
+    <section ref={containerRef} className="py-16 lg:py-20 px-6 md:px-12 max-w-7xl mx-auto z-10 relative bg-black">
+      <div className="mb-10 md:mb-12">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
           Featured <span className="text-emerald-500">Projects</span>
         </h2>
         <div className="w-20 h-1 bg-emerald-500 rounded"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
           <div 
             key={index} 
-            className="project-card bg-[#0a0a0a] border border-gray-800 rounded-xl p-6 hover:border-emerald-500/50 transition-colors duration-300 group flex flex-col"
+            className="project-card bg-[#0a0a0a] border border-gray-800 rounded-xl p-5 hover:border-emerald-500/50 transition-colors duration-300 group flex flex-col"
           >
-            <div className="h-48 w-full bg-gray-900 rounded-lg mb-6 overflow-hidden relative flex-shrink-0">
+            <div className="h-44 w-full bg-gray-900 rounded-lg mb-5 overflow-hidden relative flex-shrink-0">
               <div className="absolute inset-0 bg-emerald-500/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
               
               <img 
@@ -68,7 +68,7 @@ const Projects = () => {
               <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
                 {project.name}
               </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              <p className="project-summary text-gray-400 text-sm leading-relaxed mb-5">
                 {project.review}
               </p>
             </div>

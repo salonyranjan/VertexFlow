@@ -6,7 +6,8 @@ const MoonIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.
 
 const getInitialTheme = () => {
   try {
-    return localStorage.getItem("vertexflow-theme") || "dark";
+    const savedTheme = localStorage.getItem("vertexflow-theme");
+    return savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
   } catch {
     return "dark";
   }
@@ -87,11 +88,11 @@ const NavBar = () => {
         </nav>
 
         <div className="vf-nav-actions">
-          <button className="vf-theme-toggle" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+          <button type="button" className="vf-theme-toggle" onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
           <a className="vf-contact-link" href="#contact" onClick={(event) => navigate(event, "#contact")}><span>Let’s talk</span><b>↗</b></a>
-          <button className={`vf-menu-toggle ${menuOpen ? "is-open" : ""}`} onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label={menuOpen ? "Close navigation" : "Open navigation"}><i/><i/></button>
+          <button type="button" className={`vf-menu-toggle ${menuOpen ? "is-open" : ""}`} onClick={() => setMenuOpen((open) => !open)} aria-expanded={menuOpen} aria-label={menuOpen ? "Close navigation" : "Open navigation"}><i/><i/></button>
         </div>
       </div>
     </header>

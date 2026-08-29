@@ -10,6 +10,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+  const prefersReducedMotion = useMediaQuery({ query: "(prefers-reduced-motion: reduce)" });
   const wrapperRef = useRef(null);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -22,7 +23,7 @@ const HeroExperience = () => {
   return (
     <div ref={wrapperRef} className="w-full h-full">
       <Canvas
-      frameloop={isVisible ? "always" : "never"}
+      frameloop={isVisible && !prefersReducedMotion ? "always" : "demand"}
       camera={{ position: [0, 0, 15], fov: 45 }}
       dpr={[1, 1.25]}
       gl={{ antialias: false, powerPreference: "high-performance" }}
@@ -32,6 +33,7 @@ const HeroExperience = () => {
       <OrbitControls
         enablePan={false}
         enableZoom={!isTablet}
+        enableRotate={!prefersReducedMotion}
         maxDistance={20}
         minDistance={5}
         minPolarAngle={Math.PI / 5}

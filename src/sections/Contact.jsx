@@ -50,19 +50,19 @@ const Contact = () => {
   };
 
   return (
-    <section className="flex-center section-padding">
+    <section className="flex-center px-5 py-16 md:px-10 lg:py-20">
       <div className="w-full h-full md:px-10 px-5">
         <TitleHeader
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
-        <div className="grid-12-cols mt-16">
+        <div className="grid-12-cols mt-10 md:mt-12">
           <div className="xl:col-span-5">
-            <div className="flex-center card-border rounded-xl p-10">
+            <div className="flex-center card-border rounded-xl p-6 md:p-8">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
-                className="w-full flex flex-col gap-7"
+                className="w-full flex flex-col gap-5"
                 aria-busy={loading}
               >
                 <div>
@@ -111,15 +111,15 @@ const Contact = () => {
                 </div>
 
                 <button type="submit" disabled={loading} aria-disabled={loading}>
-                  <div className="cta-button group">
-                    <div className="bg-circle" />
-                    <p className="text">
+                  <span className="cta-button group">
+                    <span className="bg-circle" />
+                    <span className="text">
                       {loading ? "Sending..." : "Send Message"}
-                    </p>
-                    <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
-                    </div>
-                  </div>
+                    </span>
+                    <span className="arrow-wrapper">
+                      <img src="/images/arrow-down.svg" alt="" aria-hidden="true" />
+                    </span>
+                  </span>
                 </button>
                 {status.message && (
                   <p role={status.type === "error" ? "alert" : "status"} aria-live="polite" className={status.type === "success" ? "text-emerald-400 text-sm" : "text-red-400 text-sm"}>

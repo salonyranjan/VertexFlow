@@ -40,35 +40,35 @@ const App = () => {
 
           <ProfileIntro />
 
-          <section className="relative py-12 border-b border-white/5 bg-black/80 backdrop-blur-md">
+          <section className="relative border-b border-white/5 bg-black/80 backdrop-blur-md">
             <LogoShowcase />
           </section>
 
           <section id="work" className="relative scroll-mt-24">
             <Suspense fallback={<SectionFallback />}><ShowcaseSection /></Suspense>
             
-            <div className="relative z-20 bg-black py-20">
+            <div className="relative z-20 bg-black">
               <Suspense fallback={<SectionFallback />}><FeatureCards /></Suspense>
             </div>
           </section>
           
-          <section id="experience" className="relative scroll-mt-28 py-24 bg-zinc-950/40 border-y border-white/5">
+          <section id="experience" className="relative scroll-mt-24 bg-zinc-950/40 border-y border-white/5">
             <Suspense fallback={<SectionFallback />}><Experience /></Suspense>
           </section>
           
-          <section id="skills" className="relative scroll-mt-28 py-24">
+          <section id="skills" className="relative scroll-mt-24">
             <Suspense fallback={<SectionFallback />}><TechStack /></Suspense>
           </section>
 
-          <section id="certifications" className="relative scroll-mt-28 py-24 bg-zinc-950/20 border-t border-white/5">
+          <section id="certifications" className="relative scroll-mt-24 bg-zinc-950/20 border-t border-white/5">
             <Suspense fallback={<SectionFallback />}><Certifications /></Suspense>
           </section>
           
-          <section id="projects" className="relative scroll-mt-28 py-24 bg-gradient-to-b from-transparent via-emerald-950/5 to-transparent">
+          <section id="projects" className="relative scroll-mt-24 bg-gradient-to-b from-transparent via-emerald-950/5 to-transparent">
             <Suspense fallback={<SectionFallback />}><Projects /></Suspense>
           </section>
           
-          <section id="contact" className="relative scroll-mt-28 pb-20">
+          <section id="contact" className="relative scroll-mt-24">
             <Suspense fallback={<SectionFallback />}><Contact /></Suspense>
           </section>
           
